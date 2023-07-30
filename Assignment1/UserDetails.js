@@ -16,8 +16,15 @@ document.addEventListener("DOMContentLoaded", function () {
         age: age,
       };
   
-      // Store the user details in local storage
-      localStorage.setItem("userDetails", JSON.stringify(userDetails));
+      // Get existing user data from local storage
+      var usersData = localStorage.getItem("usersData");
+      var users = usersData ? JSON.parse(usersData) : {}; // Parse existing data or create an empty object
+  
+      // Store the user details in the object with email as the key
+      users[email] = userDetails;
+  
+      // Save the updated object back to local storage
+      localStorage.setItem("usersData", JSON.stringify(users));
   
       // Clear the form fields after submission (optional)
       form.reset();
