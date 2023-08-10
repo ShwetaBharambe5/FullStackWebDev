@@ -1,1 +1,11 @@
-console.log("Hello World")
+const obj1= {
+
+    "key1": "value1",
+    
+    "key2" : "value2",
+    
+    "key3" : "value3"
+    
+    }
+    
+    const obj2 = { ...obj1	, "key3": "new value"}
