@@ -10,6 +10,20 @@ let editingIndex = -1; // Index of the expense being edited
 // Load expenses from local storage
 let expenses = JSON.parse(localStorage.getItem("expenses")) || [];
 
+// Function to add an expense
+function addExpense(amount, description, category) {
+    expenses.push({ amount, description, category });
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+    displayExpenses();
+}
+
+// Function to remove an expense
+function removeExpense(index) {
+    expenses.splice(index, 1);
+    localStorage.setItem("expenses", JSON.stringify(expenses));
+    displayExpenses();
+}
+
 // Function to display expenses
 function displayExpenses() {
     expensesList.innerHTML = "";
